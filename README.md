@@ -5,3 +5,7 @@ A small collection of Security-orientated Python scripts.
   - Uses the rockyou.txt wordlist for an additional check (rockyou.txt not included in repo. The file will need to be acquired separately).
   - Also securely uses the "Have I Been Pwned" API to search for whether the potential password has been found in a breach.
   - *Password tips based on the standards published by Virginia Polytechnic Institute and State University*
+    ``python password_auditor.py``
+
+- port_scanner.py: Given a range of two numbers, this Python program will scan and return all open ports within that range.
+  ``python port_scanner.py <from_port_number> <to_port_number>``
