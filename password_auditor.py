@@ -1,6 +1,9 @@
-import sys
+import pwinput
+import hashlib
 import os
-import getpass
+import sys
+
+import requests
 
 # Check wordlist to avoid common passwords
 def is_common_passowrd(pswd, wordList):
@@ -13,6 +16,31 @@ def is_common_passowrd(pswd, wordList):
     with open(wordList, "r") as f:
         if pswd in f.read():
             return True
+
+# Check "Have I Been Pwned"'s password repository using hashes
+def haveibeenpwned_api(pswd):
+    # "Have I Been Pwned" API endpoint URL
+    url = "https://api.pwnedpasswords.com/range/"
+
+    hash_object = hashlib.sha1((pswd).encode("utf-8"))
+    hex_dig = hash_object.hexdigest()
+
+    prefix = hex_dig[:5]
+    suffix = hex_dig[5:]
+
+    try: 
+        response = requests.get(url + prefix)
+        
+        if response.status_code == 200:
+            if (suffix.upper()) in response.text:
+                print("Password detected in a data breach! Please try a different one.")
+                return True
+        # else:
+        #     print("Failure")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+
+    
 
 def main(password):
 
@@ -40,6 +68,10 @@ def main(password):
         print("WARNING: THIS IS A COMMON PASSWORD!")
         strengthCheck = True
 
+    # Checks the haveibeenpwned for potential password breach
+    if haveibeenpwned_api(password):
+        strengthCheck = True
+    
     # If none of the above if-statements ran, the password has good complexity
     if not strengthCheck:
         print("You have a strong password!")
@@ -48,15 +80,16 @@ def main(password):
 if __name__ == "__main__":
     args = sys.argv
 
-    # Cannoot pass any additional arguments
+    # Cannot pass any additional arguments
     if len(args) > 1:
         print("Error: Do not pass the password as a command-line argument.", file=sys.stderr)
         print("Usage: python script.py (you will be prompted for the password)", file=sys.stderr)
         sys.exit(1)
 
     try:
-        # Prompt the user securely (input will be hidden as they type)
-        password = getpass.getpass("Enter potential password to audit: ")
+
+        # Securely input potential password with asterisk masking
+        password = pwinput.pwinput(prompt="Enter potential password to audit: ", mask="*")
     except KeyboardInterrupt:
         print("\nOperation cancelled.")
         sys.exit(1)
@@ -70,4 +103,3 @@ if __name__ == "__main__":
         sys.exit(1)
 
     main(password)
-
