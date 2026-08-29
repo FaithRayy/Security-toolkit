@@ -9,3 +9,6 @@ A small collection of Security-orientated Python scripts.
 
 - port_scanner.py: Given a range of two numbers, this Python program will scan and return all open ports within that range.
   - Run: ``python port_scanner.py <from_port_number> <to_port_number>``
+
+- file_integrity_check.py: Given a text file, this program will calculate a SHA-256 hash for the file, and when the program is run again, it will compare the given text file with the hash and alert if a change to the file has been made.
+  - Run: ``python file_integrity_check/py <file_name.txt>``
