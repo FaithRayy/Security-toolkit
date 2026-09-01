@@ -65,7 +65,7 @@ def main(text_file):
 if __name__ == "__main__":
     args = sys.argv
     if len(args) != 2:
-        raise Exception("Blah")
+        raise Exception("You need to pass the name of the text file only")
 
     text_File = " ".join(args[1:])
 
