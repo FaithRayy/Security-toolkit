@@ -18,4 +18,5 @@ A small collection of Security-orientated Python scripts.
   - Run: ``python systemAndGeo.py``
 
 - auth_logs_mac.py: Mac-specific program that exports an Excel sheet of authentication logs from the past given hours.
+  - The output Excel sheet contains all cases of authentication logs, including authentication required to download/delete certain files and applications, and failed/successful logins, with a count of how many attempts it took.
   - Run: ``auth_logs_mac.py <number of hours>h``
