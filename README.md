@@ -14,5 +14,8 @@ A small collection of Security-orientated Python scripts.
   - Run: ``python file_integrity_check/py <file_name.txt>``
 
 - systemAndGeo.py: Run and receive the system OS, IP address, MAC address, and ISP, along with the associated city, state, country, and timezone.
-  - Uses API from "ipify.org" and "IP-API.com" for receiving public IP address and geolocation, respectively.
+  - Uses API from "ipify.org" and "IP-API.com" to receive the public IP address and geolocation, respectively.
   - Run: ``python systemAndGeo.py``
+
+- auth_logs_mac.py: Mac-specific program that exports an Excel sheet of authentication logs from the past given hours.
+  - Run: ``auth_logs_mac.py <number of hours>h``
