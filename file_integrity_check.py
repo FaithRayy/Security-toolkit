@@ -52,12 +52,12 @@ def main(text_file):
         else:
             print("The file has been changed.")
     else:
-        response = input("A corresponding hash does not exist for this file.\nWould you like to create a new one? Y or N\n")
+        response = input("A corresponding hash does not exist for this file.\nWould you like to create a new one? Y or N\n").strip().casefold()
         while True:
-            if response == "Y":
+            if response == "y":
                 create_hash(text_file)
                 break
-            elif response == "N":
+            elif response == "n":
                 break
             else:
                 response = input("Please input Y or N\n")
