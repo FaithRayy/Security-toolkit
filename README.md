@@ -13,8 +13,9 @@ A small collection of Security-orientated Python scripts.
 - file_integrity_check.py: Given a text file, this program will calculate a SHA-256 hash for the file, and when the program is run again, it will compare the given text file with the hash and alert if a change to the file has been made.
   - Run: ``python file_integrity_check.py <file_name.txt>``
 
-- systemAndGeo.py: Run and receive the system OS, IP address, MAC address, and ISP, along with the associated city, state, country, and timezone.
+- systemAndGeo.py: Run and output the system OS, IP address, MAC address, and ISP, along with the associated city, state, country, and timezone.
   - Uses API from "ipify.org" and "IP-API.com" to receive the public IP address and geolocation, respectively.
+  - Note: The information provided does not get transferred in any way outside of the program/localhost. Any selling, trading, or otherwise transfer of such information is outside the scope of purpose for this script.
   - Run: ``python systemAndGeo.py``
 
 - auth_logs_mac.py: Mac-specific program that exports an Excel sheet of authentication logs from the past given hours.
