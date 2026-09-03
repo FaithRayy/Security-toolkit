@@ -9,9 +9,11 @@ A small collection of Security-orientated Python scripts.
 
 - port_scanner.py: Given a range of two numbers, this Python program will scan and return all open ports within that range.
   - Run: ``python port_scanner.py <from_port_number> <to_port_number>``
+  - Example: ``python port_scanner.py 40 700``
 
 - file_integrity_check.py: Given a text file, this program will calculate a SHA-256 hash for the file, and when the program is run again, it will compare the given text file with the hash and alert if a change to the file has been made.
   - Run: ``python file_integrity_check.py <file_name.txt>``
+  - Example: ``python file_integrity_check.py file.txt``
 
 - systemAndGeo.py: Run and output the system OS, IP address, MAC address, and ISP, along with the associated city, state, country, and timezone.
   - Uses API from "ipify.org" and "IP-API.com" to receive the public IP address and geolocation, respectively.
@@ -21,3 +23,4 @@ A small collection of Security-orientated Python scripts.
 - auth_logs_mac.py: Mac-specific program that exports an Excel sheet of authentication logs from the past given hours.
   - The output Excel sheet contains all cases of authentication logs, including authentication required to download/delete certain files and applications, and failed/successful logins, with a count of how many attempts it took.
   - Run: ``python3 auth_logs_mac.py <number of hours>h``
+  - Example: ``python3 auth_logs_mac.py 5h``
