@@ -28,9 +28,13 @@ def main(log_parem):
         log_entries = json.loads(getLogCommand.stdout)
 
         # Retrieve data sheet
-        df1 = pd.DataFrame(log_entries)
+        df = pd.DataFrame(log_entries)
+        if df.empty:
+            print(f"There have been no authentication attempts within the last {log_parem[:-1]} hour(s)")
+            return
+        
         # Remove certain redundant columns from excel sheet
-        df_cleaned = df1.drop(columns=["timezoneName", "source", "formatString", "backtrace"])
+        df_cleaned = df.drop(columns=["timezoneName", "source", "formatString", "backtrace"])
 
         df_cleaned.to_excel(file_path)
 
