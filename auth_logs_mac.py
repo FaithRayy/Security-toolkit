@@ -51,7 +51,7 @@ if __name__ == "__main__":
     log_parem = args[1]
 
     # You can only pass an hour windows of 1 to 3 digits
-    if not re.match("\\d{1,3}h", log_parem):
+    if not re.match("\\d{1,3}h$", log_parem):
         raise Exception("Error: You can only filter an hour time window of 3 digits at most: <num>h")                                    
             
     main(log_parem)
