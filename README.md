@@ -28,9 +28,9 @@ A small collection of Security-orientated Python scripts.
 - auth_logs_windowsV1.py: Windows-Specific program that exports a CSV file of authentication logs based on a given requested number of logs, amount of hours passed, or a timeframe.
   - The output begins as an Out-GridView. Then the user can select all or select individually which logs they would like exported to the CSV file. Then select "OK".
   - Uses the Get-EventLog PowerShell tool (legacy tool), and is not available in PowerShell 6, 7+. Only works for PowerShell 5.1 and older
-  - Run and return the last <number> logs (3 digits max): ``python <number of hours>``
-  - Example: ``python 5``
-  - Run and return logs based on the last <number> hours (3 digits max): ``python <number of hours>h``
-  - Example: ``python 5h``
-  - Run and return logs based on a timeframe: ``python <M/DD/YYYY>-<M/DD/YYYY>``
-  - Example: ``python 8/29/2026-9/3/2026``
+  - Run and return the last <number> logs (3 digits max): ``python auth_logs_windowsV1.py <number of hours>``
+  - Example: ``python auth_logs_windowsV1.py 5``
+  - Run and return logs based on the last <number> hours (3 digits max): ``python auth_logs_windowsV1.py <number of hours>h``
+  - Example: ``python auth_logs_windowsV1.py 5h``
+  - Run and return logs based on a timeframe: ``python auth_logs_windowsV1.py <M/DD/YYYY>-<M/DD/YYYY>``
+  - Example: ``python auth_logs_windowsV1.py 8/29/2026-9/3/2026``
