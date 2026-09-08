@@ -26,11 +26,21 @@ A small collection of Security-orientated Python scripts.
     - Example: ``python3 auth_logs_mac.py 5h``
 
 - auth_logs_windowsV1.py: Windows-Specific program that exports a CSV file of authentication logs based on a given requested number of logs, amount of hours passed, or a timeframe.
-  - The output begins as an Out-GridView. Then the user can select all(Ctrl+A) or select individually (Ctrl+click) which logs they would like exported to the CSV file. Then select "OK".
-  - Uses the Get-EventLog PowerShell tool (legacy tool), and is not available in PowerShell 6, 7+. Only works for PowerShell 5.1 and older
+  - **Uses the Get-EventLog PowerShell tool (legacy tool), which is not supported in PowerShell versions 6, 7+. Only works for PowerShell 5.1 and older.**
+  - The output begins as an Out-GridView. Then the user can select all (Ctrl+A) or select individually (Ctrl+click) which logs they would like exported to the CSV file. Then select "OK".
   - Run and return the last <number> logs (3 digits max): ``python auth_logs_windowsV1.py <number of log>``
     - Example: ``python auth_logs_windowsV1.py 5``
   - Run and return logs based on the last <number> hours (3 digits max): ``python auth_logs_windowsV1.py <number of hours>h``
     - Example: ``python auth_logs_windowsV1.py 5h``
   - Run and return logs based on a timeframe: ``python auth_logs_windowsV1.py <M/DD/YYYY>-<M/DD/YYYY>``
     - Example: ``python auth_logs_windowsV1.py 8/29/2026-9/3/2026``
+
+- auth_logs_windowsV2.py: Windows-Specific program that exports a CSV file of authentication logs based on a given requested number of logs, amount of hours passed, or a timeframe.
+  - **Uses the Get-WinEvent PowerShell tool, which is supported in PowerShell versions 2.0 to 7.x+**
+  - The output begins as an Out-GridView. Then the user can select all (Ctrl+A) or select individually (Ctrl+click) which logs they would like exported to the CSV file. Then select "OK".
+  - Run and return the last <number> logs (3 digits max): ``python auth_logs_windowsV2.py <number of log>``
+    - Example: ``python auth_logs_windowsV2.py 5``
+  - Run and return logs based on the last <number> hours (3 digits max): ``python auth_logs_windowsV2.py <number of hours>h``
+    - Example: ``python auth_logs_windowsV2.py 5h``
+  - Run and return logs based on a timeframe: ``python auth_logs_windowsV2.py <YYYY/MM/DD>-<YYYY/MM/DD>``
+    - Example: ``python auth_logs_windowsV2.py 2026/08/29-2026/09/03``
