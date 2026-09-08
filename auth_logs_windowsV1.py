@@ -37,7 +37,7 @@ def log_date(timeframe, path):
 def main(log_parem, type):
     # Create csv file in the same directory as program
     cwd = os.getcwd()
-    file_name = f"Security_Logs_{log_parem}.csv"
+    file_name = f"Security_Logs_{log_parem.replace("/", "")}.csv"
     path = os.path.join(cwd, file_name)
 
     # PowerShell command
