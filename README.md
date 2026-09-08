@@ -17,7 +17,7 @@ A small collection of Security-orientated Python scripts.
 
 - systemAndGeo.py: Run and output the system OS, IP address, MAC address, and ISP, along with the associated city, state, country, and timezone.
   - Uses API from "ipify.org" and "IP-API.com" to receive the public IP address and geolocation, respectively.
-  - Note: The information provided is not transferred in any way outside of the program/localhost. Any selling, trading, or otherwise transfer of such information is outside the scope of this script's purpose.
+  - Note: The information provided is not transferred in any way outside of the program/localhost. Any selling, trading, or otherwise transferring of such information is outside the scope of this script's purpose.
   - Run: ``python systemAndGeo.py``
 
 - auth_logs_mac.py: macOS-specific program that exports an Excel sheet of authentication logs from the past given hours.
@@ -26,7 +26,7 @@ A small collection of Security-orientated Python scripts.
     - Example: ``python3 auth_logs_mac.py 5h``
 
 - auth_logs_windowsV1.py: Windows-Specific program that exports a CSV file of authentication logs based on a given requested number of logs, amount of hours passed, or a timeframe.
-  - The output begins as an Out-GridView. Then the user can select all or select individually which logs they would like exported to the CSV file. Then select "OK".
+  - The output begins as an Out-GridView. Then the user can select all(Ctrl+A) or select individually (Ctrl+click) which logs they would like exported to the CSV file. Then select "OK".
   - Uses the Get-EventLog PowerShell tool (legacy tool), and is not available in PowerShell 6, 7+. Only works for PowerShell 5.1 and older
   - Run and return the last <number> logs (3 digits max): ``python auth_logs_windowsV1.py <number of log>``
     - Example: ``python auth_logs_windowsV1.py 5``
